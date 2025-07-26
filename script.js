@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     const nextButtons = document.querySelectorAll('.next-btn');
+    const prevButtons = document.querySelectorAll('.prev-btn');
 
     // Lock all but the first section at page load
     sections.forEach((section, idx) => {
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Handle "next" buttons
     nextButtons.forEach((btn, idx) => {
         btn.addEventListener('click', () => {
             const nextSection = sections[idx + 1];
@@ -16,7 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextSection.classList.remove('locked');
                 nextSection.scrollIntoView({ behavior: 'smooth' });
             }
-            btn.disabled = true; // disable current button to avoid repeated clicks
         });
     });
+
+    prevButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const currentSection = btn.closest('.section');
+            const prevSection = currentSection.previousElementSibling;
+
+            if (prevSection && prevSection.classList.contains('section')) {
+                prevSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
 });
