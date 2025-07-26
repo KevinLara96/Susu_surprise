@@ -32,4 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // Enable flip on tap (for mobile)
+    const flipCards = document.querySelectorAll('.flip-card-inner');
+
+    flipCards.forEach(card => {
+        card.parentElement.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
+
 });
