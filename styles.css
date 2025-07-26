@@ -179,32 +179,50 @@ p {
     font-size: 1rem;
 }
 
-.case-file {
-    background-color: #fdf6f0;
-    border: 2px dashed #999;
-    padding: 1.5rem;
-    border-radius: 10px;
+.cafe-scene {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
     margin-top: 2rem;
-    max-width: 520px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.case-file h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #4e4e4e;
+.coffee-cup img {
+    max-width: 120px;
+    animation: steam-rise 3s infinite ease-in-out;
 }
 
-.case-file ul {
-    list-style: none;
-    padding-left: 0;
+@keyframes steam-rise {
+    0% {
+        transform: translateY(0px);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 0.9;
+    }
 }
 
-.case-file li {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-    line-height: 1.4;
+.crime-board {
+    background: #f9f0e6;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
 }
+
+.law-and-love {
+    font-style: italic;
+    margin-top: 1rem;
+    text-align: right;
+}
+
 
 .proposal-box {
     background-color: #fff8fc;
@@ -511,4 +529,13 @@ button.cta {
     background-color: #e6f7ff;
     color: #111;
     transform: rotateY(180deg);
+}
+
+#surprise {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#surprise.show {
+    opacity: 1;
 }

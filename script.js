@@ -32,14 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Reveal final surprise when "yes" is clicked
+    const revealFinalBtns = document.querySelectorAll('.reveal-final');
+    const sheSaidYesSection = document.getElementById('she-said-yes');
 
-    // Enable flip on tap (for mobile)
-    const flipCards = document.querySelectorAll('.flip-card-inner');
-
-    flipCards.forEach(card => {
-        card.parentElement.addEventListener('click', () => {
-            card.classList.toggle('flipped');
+    revealFinalBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            if (sheSaidYesSection) {
+                sheSaidYesSection.classList.remove('locked');
+                sheSaidYesSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
+
 
 });
